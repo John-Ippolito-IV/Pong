@@ -42,6 +42,14 @@ void Ball::hitBottom()
 	position.x = 500;	
 }
 
+void Ball::clear()
+{
+	position.y = 1;
+	position.x = 500;
+	xVelocity = 0;
+	yVelocity = 0;
+}
+
 void Ball::update()
 {
 	position.y += yVelocity;

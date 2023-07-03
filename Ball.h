@@ -14,6 +14,7 @@ public:
 	void reboundSides();
 	void reboundBatOrTop();
 	void hitBottom();
+	void clear();
 	void update();
 private:
 	Vector2f position;
