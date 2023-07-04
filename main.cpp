@@ -1,5 +1,6 @@
 #include "Bat.h"
 #include "Ball.h"
+#include "ComOpp.h"
 #include <sstream>
 #include <cstdlib>
 #include "SFML/Graphics.hpp"
@@ -31,7 +32,8 @@ int main()
     RenderWindow window(VideoMode(windowWidth, windowHeight), "Pong");
 
     Bat bat(windowWidth / 2, windowHeight - 20);
-    Ball ball(windowWidth / 2, 1);
+    Ball ball(windowWidth / 2, 100);
+    ComOpp com(windowWidth /2, 100);
 
     while (window.isOpen())
     {
@@ -70,7 +72,8 @@ int main()
                 ball.reboundSides();
             }
 
-            if (ball.getPosition().intersects(bat.getPosition()))
+            if (ball.getPosition().intersects(bat.getPosition())
+                || ball.getPosition().intersects(com.getBounds()))
             {
                 ball.reboundBatOrTop();
             }
@@ -92,11 +95,15 @@ int main()
             break;
         }
 
+        com.setTargetX(ball.getPosition().left);
+
+        com.update();
         ball.update();
         bat.update();
 
         window.draw(bat.getShape());
         window.draw(ball.getShape());
+        window.draw(com.getShape());
         window.display();
     }
 }

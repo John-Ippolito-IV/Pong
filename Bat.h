@@ -8,7 +8,9 @@ using namespace sf;
 class Bat
 {
 public:
+	Bat();
 	Bat(float startX, float startY);
+	void setPosition(Vector2f pos);
 	FloatRect getPosition();
 	RectangleShape getShape();
 

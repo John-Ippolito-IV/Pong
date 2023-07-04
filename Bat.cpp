@@ -1,6 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include "Bat.h"
 
+Bat::Bat()
+{
+    float width = 100;
+    batShape.setSize(Vector2f(width, 10));
+}
+
 Bat::Bat(float startX, float startY)
 {
 
@@ -14,6 +20,10 @@ Bat::Bat(float startX, float startY)
 FloatRect Bat::getPosition()
 {
     return batShape.getGlobalBounds();
+}
+void Bat::setPosition(Vector2f pos)
+{
+    position = pos;
 }
 
 RectangleShape Bat::getShape()

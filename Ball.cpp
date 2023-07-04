@@ -8,8 +8,6 @@ Ball::Ball(float startX, float startY)
 	ballShape.setSize(sf::Vector2f(15, 15));
 	ballShape.setPosition(position);
 }
-
-
 FloatRect Ball::getPosition()
 {
 	return ballShape.getGlobalBounds();
